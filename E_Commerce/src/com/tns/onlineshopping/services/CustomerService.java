@@ -3,6 +3,8 @@ package com.tns.onlineshopping.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.tns.onlineshopping.entities.Customer;
+
 public class CustomerService {
      
 	   private List<Customer> customerList = new ArrayList<>();
