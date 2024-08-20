@@ -3,6 +3,9 @@ package com.tns.onlineshopping.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.tns.onlineshopping.entities.Product;
+import com.tns.onlineshopping.entities.ProductQuantityPair;
+
 public class OrderService {
     private List<Order> orderList = new ArrayList<>();
 
@@ -22,8 +25,8 @@ public class OrderService {
                        Product product = pair.getProduct();
                        int quantity = pair.getQuantity();
 
-                       if (product.getStockQuantity() >= quantity) {
-                           product.setStockQuantity (product.getStockQuantity() - quantity);
+                       if (product.getStockQuaninty() >= quantity) {
+                           product.setStockQuantity (product.getStockQuaninty() - quantity);
                        }  else {
                            System.out.println("Insufficient stock for product:" + product.getName());
                            return;
@@ -31,10 +34,10 @@ public class OrderService {
                   }     
               } else if ("Cancelled".equalsIgnoreCase (status)) {
             	  if ("Completed".equalsIgnoreCase (order.getStatus()) || "Pending".equalsIgnoreCase (order.getStatus())) {
-            		  for (ProductQuantityPair pair order.getProducts()) {
-            			  Product product pair.getProduct();
+            		  for (ProductQuantityPair pair: order.getProducts()) {
+            			  Product product= pair.getProduct();
             			  int quantity = pair.getQuantity();
-            			  product.setStockQuantity (product.getStockQuantity() + quantity);
+            			  product.setStockQuantity (product.getStockQuaninty() + quantity);
             		  }  
             	  }
          	  } else if ("Delivered".equalsIgnoreCase (status) && "Completed".equalsIgnoreCase (order.getStatus())) {	 
